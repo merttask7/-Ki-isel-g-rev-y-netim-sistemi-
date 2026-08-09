@@ -1,0 +1,22 @@
+# .NET
+Backend/TaskManagement.API/bin/
+Backend/TaskManagement.API/obj/
+
+# Uploaded files
+Backend/TaskManagement.API/Uploads/
+
+# IDE
+.vs/
+.vscode/
+*.user
+
+# macOS
+.DS_Store
+
+# Environment / secrets
+*.env
+
+# Node (frontend, ileride kullanılacak)
+Frontend/node_modules/
+Frontend/dist/
+Frontend/build/
