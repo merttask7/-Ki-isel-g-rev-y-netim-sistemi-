@@ -21,4 +21,4 @@ Frontend/node_modules/
 Frontend/dist/
 Frontend/build/
 # Auto-generated solution file
-Backend/*.sln
+Backend/**/*.sln
