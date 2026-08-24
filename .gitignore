@@ -20,3 +20,5 @@ Backend/TaskManagement.API/Uploads/
 Frontend/node_modules/
 Frontend/dist/
 Frontend/build/
+# Auto-generated solution file
+Backend/*.sln
