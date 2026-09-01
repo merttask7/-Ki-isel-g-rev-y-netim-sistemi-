@@ -84,3 +84,17 @@ TaskManagementSystem/
 - **Tasks** — görevler (başlık, açıklama, öncelik, durum, bitiş tarihi)
 - **TaskComments** — görev yorumları
 - **TaskAttachments** — görev dosya ekleri
+
+- Oracle desteği (dual-provider, kod hazır — bkz. aşağıda)
+
+## Veritabanı Provider Desteği
+
+Uygulama hem PostgreSQL hem Oracle'ı destekleyecek şekilde yapılandırılmıştır. Aktif provider, `appsettings.json` içindeki `DatabaseProvider` alanıyla seçilir (`"PostgreSQL"` veya `"Oracle"`).
+
+- PostgreSQL migration'ları: `Migrations/`
+- Oracle migration'ı: `Migrations/Oracle/` (model üzerinden üretildi, gerçek bir Oracle instance'ına henüz canlı olarak uygulanıp test edilmedi — geliştirme ortamında erişilebilir bir Oracle veritabanı bulunmuyordu)
+
+Oracle'a geçmek için:
+1. `appsettings.json` → `"DatabaseProvider": "Oracle"` yap
+2. `ConnectionStrings:OracleConnection` değerini kendi Oracle bilgilerinle güncelle
+3. `dotnet ef database update` çalıştır

@@ -39,8 +39,21 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+// Database provider seçimi: appsettings.json'daki "DatabaseProvider" değerine göre
+// PostgreSQL veya Oracle kullanılır.
+var databaseProvider = builder.Configuration["DatabaseProvider"] ?? "PostgreSQL";
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    if (databaseProvider.Equals("Oracle", StringComparison.OrdinalIgnoreCase))
+    {
+        options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection"));
+    }
+    else
+    {
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    }
+});
 
 builder.Services.AddScoped<TokenService>();
 
